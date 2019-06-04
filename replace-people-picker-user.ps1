@@ -2,7 +2,7 @@ Connect-PnPOnline -Url https://yourtenant.sharepoint.com/sites/yoursite -Credent
 $listName = "Test"
 $fieldName = "AssignedTo"
 $oldEmail = "jim@company.org"
-$newEmail = "bob@air.org"
+$newEmail = "bob@company.org"
 
 $listItems = Get-PnPListItem -List $listName | Where-Object { $_.FieldValues.$FieldName.Email -eq $oldEmail} 
 
