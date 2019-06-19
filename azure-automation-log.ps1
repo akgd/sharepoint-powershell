@@ -9,4 +9,4 @@ $logItem = New-Item -Path $tempPath -ItemType File -Name $logName
 $spoCreds = Get-AutomationPSCredential -Name "YourCredName"
 $site = "https://YourTenant.sharepoint.com/sites/YourSite"
 Connect-PnPOnline -Url $site -Credentials $spoCreds
-$UploadLog = Add-PnPFile -Path $logItem -Folder "Documents/Logs"
+$uploadLog = Add-PnPFile -Path $logItem -Folder "Documents/Logs"
