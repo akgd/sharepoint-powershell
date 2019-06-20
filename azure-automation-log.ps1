@@ -1,5 +1,5 @@
 $tempPath = $env:TEMP
-$now = (get-date).ToString('yyyyMMddThhmmssZ')
+$now = (Get-Date).ToString("yyyyMMddThhmmssZ")
 $logName = "Your process $now.txt"
 $logItem = New-Item -Path $tempPath -ItemType File -Name $logName
 
