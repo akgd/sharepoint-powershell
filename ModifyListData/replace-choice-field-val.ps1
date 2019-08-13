@@ -19,7 +19,7 @@ foreach ($item in $listItems) {
             $choiceFieldIntName = $uniqueVals
         }
         
-        $update = Set-PnPListItem -List $listName -Identity $itemID -Values 
+        $update = Set-PnPListItem -List $listName -Identity $itemID -Values $updatedItemData
         Write-Host "Updated item ID $itemID"
 
     }
