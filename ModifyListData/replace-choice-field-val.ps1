@@ -12,7 +12,7 @@ foreach ($item in $listItems) {
     $currentVals = $item[$choiceFieldIntName]
     $updatedVals = $currentVals -replace $oldVal, $newVal
 
-    if ($currentVals -ne $updatedVals) {
+    if ($currentVals -contains $oldVal) {
         $updatedItemData = @{
             $choiceFieldIntName = $updatedVals
         }
