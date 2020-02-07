@@ -6,8 +6,7 @@ Connect-PnPOnline -Url $site -Credentials [your_creds]
 $listName = "2020 Projects"
 $newDocSetName = "Test"
 $props = @{
-    "Status" = "New";
-    "ProjectManager" = "Andrea"
+    "DocumentSetDescription" = "Your description here"
 }
 
 # create a new doc set
