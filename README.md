@@ -6,6 +6,7 @@ Get-Module SharePointPnPPowerShell* -ListAvailable | Select-Object Name,Version 
 ```
 
 ### Update Module
+Remember to run as administrator
 ```
 Update-Module SharePointPnPPowerShell*
 ```
