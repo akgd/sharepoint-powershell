@@ -6,7 +6,7 @@ $logItem = New-Item -Path $tempPath -ItemType File -Name $logName
 "Some update" | Out-File -FilePath $logItem -Append
 "Another update" | Out-File -FilePath $logItem -Append
 
-# If lof file is not empty
+# If log file is not empty
 if (Get-Content $logItem) {
   $spoCreds = Get-AutomationPSCredential -Name "YourCredName"
   $site = "https://YourTenant.sharepoint.com/sites/YourSite"
