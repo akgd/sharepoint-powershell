@@ -15,7 +15,7 @@ function ensureUser($email, $propToReturn) {
                     # User isn't a valid in AAD
                     $storeUser = [pscustomobject]@{
                         email = $email
-                        prop = $false
+                        $propToReturn = $false
                     }
                     $processedUsers.add($storeUser)
                     return $false
