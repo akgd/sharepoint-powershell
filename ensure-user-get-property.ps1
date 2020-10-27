@@ -1,3 +1,37 @@
+# Option 1 - Ensure all the time
+$invalidUsers = new-object system.collections.arraylist
+function ensureUser($email, $propToReturn) {
+    if ($invalidUsers -contains $email) {
+        return $false
+    }
+    else {
+        if ($email) {
+            $user = Get-PnPUser | Where-Object {$_.Email -eq $email}
+            if ( !$user ) {
+                # User not found so try to create one
+                $newUser = New-PnPUser -LoginName $email -ErrorAction SilentlyContinue
+                if ( !$newUser ) {
+                    # User isn't a valid in AAD
+                    $invalidUsers.Add($email)
+                    return $false
+                }
+                else {
+                    # User created
+                    return $newUser.$propToReturn
+                }
+            }
+            else { 
+                return $user.$propToReturn
+            }
+        }
+        else {
+            # No email passed
+            return $false
+        }
+    }
+}
+
+# Option 2 - Store previously processed users. Can be useful when updating thousands of records.
 $processedUsers = new-object system.collections.arraylist
 function ensureUser($email, $propToReturn) {
     if ($processedUsers.email -contains $email) {
